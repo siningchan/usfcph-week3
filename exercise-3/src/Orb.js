@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Orb = ({ orbColor, setOrbColor }) => {
+const Orb = ({ colorCounts, setColorCounts }) => {
+  // Learn more about useState: https://reactjs.org/docs/hooks-state.html
+  const [orbColor, setOrbColor] = useState("white");
+
   // Make an array of all the colors the orb can be
   const colors = [
     "white",
@@ -16,11 +19,19 @@ const Orb = ({ orbColor, setOrbColor }) => {
   // The Function will change the orb's color to the next one in the Array
   const changeColor = () => {
     // // Find what the next color is
-    const newColor = colors[colors.findIndex(color => color === orbColor) + 1];
+    const nextColor = colors[colors.findIndex(color => color === orbColor) + 1];
+    const newColor = nextColor || "white";
+
+    // Update the counter from App
+    setColorCounts({
+      ...colorCounts,
+      [orbColor]: colorCounts[orbColor] - 1,
+      [newColor]: colorCounts[newColor] + 1
+    });
 
     // Update state, forcing our app to rerender
     // When we exhaust the Array of colors, the orb will go back to white
-    setOrbColor(newColor || "white");
+    setOrbColor(newColor);
   };
 
   return (

@@ -4,19 +4,36 @@ import Orb from "./Orb";
 import "./App.css";
 
 const App = () => {
-  // Learn more about useState: https://reactjs.org/docs/hooks-state.html
-  const [orbColor, setOrbColor] = useState("white");
+  const [colorCounts, setColorCounts] = useState({
+    white: 5,
+    red: 0,
+    orange: 0,
+    yellow: 0,
+    green: 0,
+    blue: 0,
+    purple: 0
+  });
 
   return (
     <Section>
       <Container>
         <Columns size="mobile" className="is-centered is-vcentered full-page">
           <Columns.Column className="has-text-centered padding">
-            <Heading>The Magic Orb</Heading>
+            <Heading>Magic Orbs</Heading>
 
-            <Orb orbColor={orbColor} setOrbColor={setOrbColor} />
+            <Orb colorCounts={colorCounts} setColorCounts={setColorCounts} />
+            <Orb colorCounts={colorCounts} setColorCounts={setColorCounts} />
+            <Orb colorCounts={colorCounts} setColorCounts={setColorCounts} />
+            <Orb colorCounts={colorCounts} setColorCounts={setColorCounts} />
+            <Orb colorCounts={colorCounts} setColorCounts={setColorCounts} />
 
-            <p>The orb is {orbColor}</p>
+            <p className="white">White: {colorCounts.white}</p>
+            <p className="red">Red: {colorCounts.red}</p>
+            <p className="orange">Orange: {colorCounts.orange}</p>
+            <p className="yellow">Yellow: {colorCounts.yellow}</p>
+            <p className="green">Green: {colorCounts.green}</p>
+            <p className="blue">Blue: {colorCounts.blue}</p>
+            <p className="purple">Purple: {colorCounts.purple}</p>
           </Columns.Column>
         </Columns>
       </Container>
