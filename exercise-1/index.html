@@ -38,7 +38,7 @@
               <circle cx="50" cy="50" r="50" stroke="black" />
             </svg>
 
-            <p>The orb is black</p>
+            <p id="text">The orb is white</p>
           </div>
         </div>
       </div>
@@ -47,6 +47,8 @@
     <script type="text/javascript">
       // Get the orb element so we can change its color later
       const orb = document.getElementById("orb");
+      // Get the orb-text element so we can change its text later
+      const text = document.getElementById("text");
       // Make an array of all the colors the orb can be
       const colors = [
         "white",
@@ -68,6 +70,7 @@
           colors[colors.findIndex(color => color === currentColor) + 1] ||
           "white";
         orb.style.fill = newColor;
+        text.innerText = `The orb is ${newColor}`;
       };
     </script>
   </body>
