@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Columns, Container, Heading, Section } from "react-bulma-components";
-
 import Orb from "./Orb";
 import "./App.css";
 

@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Columns, Container, Heading, Section } from "react-bulma-components";
+import Orb from "./Orb";
+import "./App.css";
 
-function App() {
+const App = () => {
+  // Learn more about useState: https://reactjs.org/docs/hooks-state.html
+  const [orbColor, setOrbColor] = useState("white");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Section>
+      <Container>
+        <Columns size="mobile" className="is-centered is-vcentered full-page">
+          <Columns.Column className="has-text-centered padding">
+            <Heading>The Magic Orb</Heading>
+
+            <Orb orbColor={orbColor} setOrbColor={setOrbColor} />
+
+            <p>The orb is {orbColor}</p>
+          </Columns.Column>
+        </Columns>
+      </Container>
+    </Section>
   );
-}
+};
 
 export default App;
