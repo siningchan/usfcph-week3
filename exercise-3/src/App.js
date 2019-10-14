@@ -4,6 +4,7 @@ import Orb from "./Orb";
 import "./App.css";
 
 const App = () => {
+  // Learn more about useState: https://reactjs.org/docs/hooks-state.html
   const [colorCounts, setColorCounts] = useState({
     white: 5,
     red: 0,
@@ -14,6 +15,17 @@ const App = () => {
     purple: 0
   });
 
+  const setColorCount = (newColor, oldColor) => {
+    // Clone the old state as a starting place
+    const newColorCounts = { ...colorCounts };
+    // Increment the new color
+    newColorCounts[newColor] += 1;
+    // Decrement the old color
+    newColorCounts[oldColor] -= 1;
+    // Update state to trigger a rerender
+    setColorCounts(newColorCounts);
+  };
+
   return (
     <Section>
       <Container>
@@ -21,11 +33,12 @@ const App = () => {
           <Columns.Column className="has-text-centered padding">
             <Heading>Magic Orbs</Heading>
 
-            <Orb colorCounts={colorCounts} setColorCounts={setColorCounts} />
-            <Orb colorCounts={colorCounts} setColorCounts={setColorCounts} />
-            <Orb colorCounts={colorCounts} setColorCounts={setColorCounts} />
-            <Orb colorCounts={colorCounts} setColorCounts={setColorCounts} />
-            <Orb colorCounts={colorCounts} setColorCounts={setColorCounts} />
+            <Orb setColorCount={setColorCount} />
+            <Orb setColorCount={setColorCount} />
+            <Orb setColorCount={setColorCount} />
+            <Orb setColorCount={setColorCount} />
+            <Orb setColorCount={setColorCount} />
+            {/* Homework: Try adding 5 orbs - hint: you will need to update state */}
 
             <p className="white">White: {colorCounts.white}</p>
             <p className="red">Red: {colorCounts.red}</p>

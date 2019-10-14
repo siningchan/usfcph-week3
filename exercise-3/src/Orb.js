@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Orb = ({ colorCounts, setColorCounts }) => {
+const Orb = ({ setColorCount }) => {
   // Learn more about useState: https://reactjs.org/docs/hooks-state.html
   const [orbColor, setOrbColor] = useState("white");
 
@@ -23,11 +23,7 @@ const Orb = ({ colorCounts, setColorCounts }) => {
     const newColor = nextColor || "white";
 
     // Update the counter from App
-    setColorCounts({
-      ...colorCounts,
-      [orbColor]: colorCounts[orbColor] - 1,
-      [newColor]: colorCounts[newColor] + 1
-    });
+    setColorCount(newColor, orbColor);
 
     // Update state, forcing our app to rerender
     // When we exhaust the Array of colors, the orb will go back to white
