@@ -65,7 +65,7 @@
       const changeColor = () => {
         // Get the current color of the orb
         const currentColor = orb.style.fill || "white";
-        // Find what the next color in the list is
+        // Find what the next color is
         const newColor =
           colors[colors.findIndex(color => color === currentColor) + 1] ||
           "white";
