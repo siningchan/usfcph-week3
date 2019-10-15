@@ -4,6 +4,7 @@ import Weather from "simple-react-weather"; // https://github.com/lopogo59/simpl
 import "./App.css";
 
 // Get an API key here: https://openweathermap.org/appid
+// NOTE: We would NEVER put keys in code like this
 const API_KEY = "";
 
 const App = () => {
