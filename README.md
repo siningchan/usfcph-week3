@@ -13,3 +13,5 @@ This week we discuss using logic to make complex applications and leaning on the
 
 - [Exercise 1](https://something.netlify.com)
 - [Exercise 2](https://something.netlify.com)
+- [Exercise 3](https://something.netlify.com)
+- [Exercise 4](https://something.netlify.com)
